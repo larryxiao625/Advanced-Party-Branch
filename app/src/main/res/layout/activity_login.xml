@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@mipmap/school"
+    android:backgroundTint="@color/background_hint"
+    android:backgroundTintMode="multiply"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/login_title"
+        android:text="电子科技大学"
+        android:shadowRadius="20"
+        android:shadowColor="#FF000000"
+        android:shadowDy="9"
+        android:shadowDx="9"
+        android:textSize="20dp"
+        android:textColor="@color/text_color_white"
+        android:gravity="center"
+        android:layout_marginTop="36dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/login_little_title"
+        android:layout_below="@id/login_title"
+        android:shadowRadius="20"
+        android:shadowColor="#FF000000"
+        android:shadowDy="6"
+        android:shadowDx="8"
+        android:layout_marginTop="16dp"
+        android:text="优秀班集体答辩会"
+        android:textColor="@color/text_color_white"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/login_username"
+        android:background="@drawable/edit_shape"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/text_color_white"
+        android:hint="username"
+        android:layout_below="@id/login_little_title"
+        android:layout_marginTop="9dp"
+        android:paddingStart="12dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/login_passwords"
+        android:layout_below="@id/login_username"
+        android:background="@drawable/edit_shape"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/text_color_white"
+        android:hint="password"
+        android:paddingStart="12dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:inputType="textPassword"
+        android:layout_marginTop="9dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <ImageView
+        android:background="@drawable/invisibility"
+        android:id="@+id/login_visibility"
+        android:tag="invisibility"
+        android:layout_alignTop="@id/login_passwords"
+        android:layout_marginTop="11dp"
+        android:layout_toEndOf="@id/login_passwords"
+        android:layout_width="30dp"
+        android:layout_height="20dp" />
+
+    <Button
+        android:id="@+id/login_signin"
+        android:background="@drawable/shape_rectangle"
+        android:text="登录"
+        android:textColor="@color/text_color_gray"
+        android:layout_below="@id/login_passwords"
+        android:layout_marginTop="11dp"
+        android:layout_marginBottom="6dp"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+</RelativeLayout>

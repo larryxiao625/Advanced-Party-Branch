@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:apps="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="1dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        apps:cardCornerRadius="8dp"
+        android:layout_width="match_parent"
+        android:minWidth="300dp"
+        android:layout_height="126dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/recycler_item_image"
+                android:scaleType="fitXY"
+                android:src="@mipmap/school"
+                android:adjustViewBounds="true"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/recycler_item_college"
+                android:textColor="#FFFFFFFF"
+                android:textSize="12dp"
+                android:text="学院名"
+                android:layout_marginStart="19dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="25dp"/>
+            <!--
+            <TextView
+                android:id="@+id/recycler_item_rank"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="10dp"
+                android:layout_marginStart="19dp"
+                android:text="答辩序号："
+                android:textSize="10dp"
+                android:textColor="#FFFFFFFF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+                -->
+            <TextView
+                android:id="@+id/recycler_item_class"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="10dp"
+                android:layout_marginStart="22dp"
+                android:text="班号："
+                android:textSize="10dp"
+                android:textColor="#FFFFFFFF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/recycler_item_detail"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/button_detail"
+                android:layout_alignParentEnd="true"
+                android:textColor="@color/text_color_white"
+                android:text="查看详情"
+                android:shadowColor="#FF000000"
+                android:shadowDx="9"
+                android:shadowDy="9"
+                android:shadowRadius="15"
+                android:layout_marginEnd="6dp"
+                android:layout_marginBottom="6dp"
+                android:layout_width="wrap_content"
+                android:maxHeight="14dp"
+                android:maxWidth="28dp"
+                android:layout_height="wrap_content" />
+
+            <com.example.as.uestc.Answer.CircleImageView
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/not"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:id="@+id/recycler_item_logo"
+                android:layout_width="46dp"
+                android:layout_height="46dp" />
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>

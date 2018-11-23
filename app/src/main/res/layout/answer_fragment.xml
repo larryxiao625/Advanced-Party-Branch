@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card="http://schemas.android.com/apk/res-auto"
+    card:cardCornerRadius="5dp"
+    android:elevation="50dp"
+    android:layout_margin="8dp"
+    android:clipChildren="false"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:weightSum="4.5"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipChildren="false">
+
+        <RelativeLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <TextView
+                android:id="@+id/answer_fragment_rank"
+                android:text="号"
+                android:textSize="16dp"
+                android:layout_marginEnd="9dp"
+                android:layout_marginTop="6dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/answer_fragment_class"
+                android:text="学院名"
+                android:gravity="center"
+                android:textSize="23dp"
+                android:layout_below="@id/answer_fragment_rank"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="4dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/answer_fragment_class_rank"
+                android:text="班级序号"
+                android:textSize="18dp"
+                android:gravity="center"
+                android:layout_below="@id/answer_fragment_class"
+                android:layout_marginTop="4dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_weight="2.5"
+            android:orientation="horizontal"
+            android:weightSum="8"
+            android:clipChildren="false"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <FrameLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+
+            </FrameLayout>
+            <android.support.v4.view.ViewPager
+                android:layout_weight="5.6"
+                android:id="@+id/answer_fragment_viewpager"
+                android:clipChildren="false"
+                android:layout_marginTop="9dp"
+                android:layout_marginBottom="9dp"
+                android:layout_marginEnd="26dp"
+                android:layout_marginStart="26dp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </android.support.v4.view.ViewPager>
+            <FrameLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <me.relex.circleindicator.CircleIndicator
+            android:layout_width="match_parent"
+            android:layout_height="12dp"
+            card:ci_width="10dp"
+            card:ci_height="10dp"
+            card:ci_drawable="@drawable/background2"
+            card:ci_drawable_unselected="@drawable/background"
+            android:id="@+id/indicator">
+        </me.relex.circleindicator.CircleIndicator>
+
+        <RelativeLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <Button
+                android:id="@+id/answer_fragment_push"
+                android:background="@drawable/shape_not"
+                android:text="打分"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:textSize="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="6dp"
+                android:layout_width="136dp"
+                android:layout_height="34dp" />
+            <TextView
+                android:id="@+id/answer_fragment_details"
+                android:text="评分细则"
+                android:textSize="15dp"
+                android:background="@drawable/textview_scoredetails"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/answer_fragment_push"
+                android:layout_marginBottom="7dp"
+                android:gravity="center"
+                android:layout_width="136dp"
+                android:layout_height="34dp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</android.support.v7.widget.CardView>
