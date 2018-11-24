@@ -2,6 +2,8 @@ package com.example.as.uestc.base.exception;
 
 /**
  * Created by as on 2017/11/14.
+ * 该类表示可能遇到的异常情况
+ * 本项目中并未使用到该类
  */
 
 public class AnswerException extends RuntimeException {
