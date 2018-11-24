@@ -55,8 +55,8 @@ public class AnswerActivity extends AnswerView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_answer);
 
-        preferences=getPreferences(MODE_PRIVATE);
-        answerView=(AnswerView) this;
+        preferences = getPreferences(MODE_PRIVATE);
+        answerView = (AnswerView) this;
 
         /*
         如果SharedPreferences中的token数据为空，说明是第一次登陆
@@ -67,41 +67,37 @@ public class AnswerActivity extends AnswerView {
         /*
         如果是第一次登陆，保存user信息到本地
          */
-        if(getIntent().getStringExtra("token")!=null)
-        {
-            TOKEN=getIntent().getStringExtra("token");
-            SharedPreferences.Editor editor=preferences.edit();
+        if (getIntent().getStringExtra("token") != null) {
+            TOKEN = getIntent().getStringExtra("token");
+            SharedPreferences.Editor editor = preferences.edit();
             editor.putString("username",getIntent().getStringExtra("username"));
             editor.putString("token",getIntent().getStringExtra("token"));
             editor.apply();
         }
         setEventListener(new AnswerListenerImpl());
-        pre=new AnswerPreImpl(answerView,new AnswerModelImpl());
+        pre = new AnswerPreImpl(answerView,new AnswerModelImpl());
 
-        if(TOKEN==null)
-        {
-            Intent intent=new Intent(this, LoginActivity.class);
-            //pre.loadInitialDataWithoutFragment();
+        if (TOKEN == null) {
+            Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
-        }
-        else
+        } else
             pre.loadInitialData(TOKEN);
 
     }
 
     @Override
     public void initView(final ClassList classList) {
-        drawerLayout=(DrawerLayout)findViewById(R.id.answer_acitvity_drawer);
+        drawerLayout = (DrawerLayout)findViewById(R.id.answer_acitvity_drawer);
 
-        username=(TextView)findViewById(R.id.answer_activity_username);
-        switchUser=(Button)findViewById(R.id.answer_activity_switch);
-        head=(ImageView)findViewById(R.id.answer_activity_head);
+        username = (TextView)findViewById(R.id.answer_activity_username);
+        switchUser = (Button)findViewById(R.id.answer_activity_switch);
+        head = (ImageView)findViewById(R.id.answer_activity_head);
 
         username.setText(preferences.getString("username","未登录"));
-        recycler=(RecyclerView)findViewById(R.id.answer_acitvity_recycler);
-        LinearLayoutManager line=new LinearLayoutManager(this);
+        recycler = (RecyclerView)findViewById(R.id.answer_acitvity_recycler);
+        LinearLayoutManager line = new LinearLayoutManager(this);
         line.setOrientation(LinearLayoutManager.VERTICAL);
-        myAdapter=new MyAdapter(classList,this);
+        myAdapter = new MyAdapter(classList,this);
         recycler.setLayoutManager(line);
         recycler.setAdapter(myAdapter);
         scrollListener=new MyScrollListener();
@@ -118,12 +114,12 @@ public class AnswerActivity extends AnswerView {
         switchUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(AnswerActivity.this, LoginActivity.class);
+                Intent intent = new Intent(AnswerActivity.this, LoginActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
         myAdapter.setMyRecyclerListener(listener);
-
     }
 
 
@@ -138,8 +134,6 @@ public class AnswerActivity extends AnswerView {
 
         Bundle bundle=new Bundle();
         bundle.putInt("position",position);
-        //bundle.putSerializable("listener",getListener());
-        //bundle.putSerializable("currentclass",currentClass);
         bundle.putString("token",TOKEN);
         bundle.putInt("state",state);
         fragment=new MainFragment();
@@ -159,8 +153,7 @@ public class AnswerActivity extends AnswerView {
      * @param scorePost 打分需要封装的数据
      * @param position 回传给Activity的Fragment所关联的RecyclerView中的哪一个班级
      */
-    public void postScore(ScorePost scorePost,int position)
-    {
+    public void postScore(ScorePost scorePost,int position) {
         ((AnswerListenerImpl)getListener()).callPresenterToPostScore(scorePost,position);
     }
 
@@ -169,10 +162,9 @@ public class AnswerActivity extends AnswerView {
      * 当打分成功的时候在AnswerPreImpl的postScore方法中被调用
      * @param position 改变RecyclerView中哪一个班级的图标的状态，由Fragment回传过来
      */
-    public void notifyTickViewChange(int position)
-    {
+    public void notifyTickViewChange(int position) {
         fragment.resetDrawable();
-        MyAdapter.MyViewHolder mholder=(MyAdapter.MyViewHolder) recycler.findViewHolderForAdapterPosition(position);
+        MyAdapter.MyViewHolder mholder = (MyAdapter.MyViewHolder) recycler.findViewHolderForAdapterPosition(position);
         mholder.getLogo().setBackground(getDrawable(R.drawable.has));
         //修改是否打分的状态
         myAdapter.changeVoteState(position);
@@ -192,29 +184,26 @@ public class AnswerActivity extends AnswerView {
      * 重新进入登录界面
      * 在post失效的时候调用
      */
-    public void reLogin()
-    {
+    public void reLogin() {
         preferences.edit().clear();
-        Intent intent=new Intent(this, LoginActivity.class);
+        Intent intent = new Intent(this, LoginActivity.class);
         pre.loadInitialDataWithoutFragment();
         startActivity(intent);
     }
 
-    class MyScrollListener extends RecyclerView.OnScrollListener{
+    class MyScrollListener extends RecyclerView.OnScrollListener {
         int visiableLastPosition;
         LinearLayoutManager manager;
         public void onScrollStateChanged(RecyclerView recyclerView, int newState){
             super.onScrollStateChanged(recyclerView,newState);
-            //manager=(LinearLayoutManager) recyclerView.getLayoutManager();
-            //visiableLastPosition=manager.findLastVisibleItemPosition();
-            if(newState==RecyclerView.SCROLL_STATE_IDLE&&visiableLastPosition==manager.getItemCount()-1)
+            if(newState == RecyclerView.SCROLL_STATE_IDLE && visiableLastPosition == manager.getItemCount() - 1)
                 ((AnswerActivity)answerView).showToast("已经到底了");
 
         }
         public void onScrolled(RecyclerView recyclerView, int dx, int dy){
             super.onScrolled(recyclerView,dx,dy);
-            manager=(LinearLayoutManager) recyclerView.getLayoutManager();
-            visiableLastPosition=manager.findLastVisibleItemPosition();
+            manager = (LinearLayoutManager) recyclerView.getLayoutManager();
+            visiableLastPosition = manager.findLastVisibleItemPosition();
         }
     }
 

@@ -37,20 +37,20 @@ public class PushDiaolg extends DialogFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        context=this;
-        TOKEN=getArguments().getString("token");
-        ID=getArguments().getString("classID");
+        context = this;
+        TOKEN = getArguments().getString("token");
+        ID = getArguments().getString("classID");
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable final ViewGroup container, Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.answer_dialog_push,container,false);
-        back=(CircleImageView)view.findViewById(R.id.answer_dialog_push_back);
-        edit=(EditText)view.findViewById(R.id.answer_dialog_push_edit);
+        View view = inflater.inflate(R.layout.answer_dialog_push,container,false);
+        back = (CircleImageView)view.findViewById(R.id.answer_dialog_push_back);
+        edit = (EditText)view.findViewById(R.id.answer_dialog_push_edit);
         edit.addTextChangedListener(new MyTextWatcher());
-        title=(TextView)view.findViewById(R.id.answer_dialog_push_title);
-        submit=(TextView)view.findViewById(R.id.answer_dialog_push_submit);
+        title = (TextView)view.findViewById(R.id.answer_dialog_push_title);
+        submit = (TextView)view.findViewById(R.id.answer_dialog_push_submit);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,20 +65,16 @@ public class PushDiaolg extends DialogFragment {
             @Override
             public void onClick(View v) {
 
-                if(edit.getText().toString().equals("")||edit.getText()==null)
-                {
+                if (edit.getText().toString().equals("")||edit.getText()==null) {
                     Toast.makeText(getContext(),"请输入分数",Toast.LENGTH_SHORT).show();
-                }
-                else if(Float.parseFloat(edit.getText().toString())>100||Float.parseFloat(edit.getText().toString())<0)
-                {
+                } else if (Float.parseFloat(edit.getText().toString())>100||Float.parseFloat(edit.getText().toString())<0) {
                     Toast.makeText(getContext(),"分值必须在0.0-100.0之间",Toast.LENGTH_SHORT).show();
-                }
-                else {
+                } else {
                     String content=edit.getText().toString();
-                    content=content.contains(".")?content:edit.getText().append(".0").toString();
-                    content=content.endsWith(".")?edit.getText().append("0").toString():content;
-                    SureDialog dialog=new SureDialog();
-                    Bundle bundle=new Bundle();
+                    content = content.contains(".")?content:edit.getText().append(".0").toString();
+                    content = content.endsWith(".")?edit.getText().append("0").toString():content;
+                    SureDialog dialog = new SureDialog();
+                    Bundle bundle = new Bundle();
                     bundle.putString("score",content);
                     bundle.putString("classID",ID);
                     bundle.putString("token",TOKEN);
@@ -97,8 +93,7 @@ public class PushDiaolg extends DialogFragment {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(resultCode== Activity.RESULT_OK)
-        {
+        if(resultCode == Activity.RESULT_OK) {
             //提交数据的实现交给上一级Fragment来实现
             getTargetFragment().onActivityResult(0,Activity.RESULT_OK,data);
         }

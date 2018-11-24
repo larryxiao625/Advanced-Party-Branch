@@ -9,8 +9,7 @@ import com.example.as.uestc.Answer.beans.ScorePost;
 
 public class AnswerListenerImpl extends AnswerListener {
 
-    public void callPresenterToPostScore(ScorePost data,int position)
-    {
+    public void callPresenterToPostScore(ScorePost data,int position) {
         ((AnswerPreImpl)getPresenter()).postScore(data,position);
     }
 

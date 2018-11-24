@@ -16,26 +16,21 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class RetrofitManager {
-    private static final String BASEURL="http://youban.stuhome.com/";
-    private Retrofit RETROFIT=null;
-    private static RetrofitManager instance=null;
-    private RetrofitManager()
-    {
-        //OkHttpClient client=new OkHttpClient.Builder().connectTimeout(12000, TimeUnit.MILLISECONDS).build();
-        RETROFIT=new Retrofit.Builder()
+    private static final String BASEURL = "http://youban.stuhome.com/";
+    private Retrofit RETROFIT = null;
+    private static RetrofitManager instance = null;
+    private RetrofitManager() {
+        RETROFIT = new Retrofit.Builder()
                 .baseUrl(BASEURL)
-                //.client(client)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
     }
 
 
-    public static RetrofitManager getInstance()
-    {
-        if (instance==null)
-        {
-            instance=new RetrofitManager();
+    public static RetrofitManager getInstance() {
+        if (instance == null) {
+            instance = new RetrofitManager();
         }
         return instance;
     }
@@ -44,18 +39,15 @@ public class RetrofitManager {
      * 得到当前班级的信息
      * @return
      */
-    public Observable<ClassList> getCurrentClass(String token)
-    {
+    public Observable<ClassList> getCurrentClass(String token) {
         return RETROFIT.create(NetWorkService.class).getCurrentClass(token);
     }
 
-    public Observable<CurrentClass> getCurrent(String classID)
-    {
+    public Observable<CurrentClass> getCurrent(String classID) {
         return RETROFIT.create(NetWorkService.class).getCurrent(classID);
     }
 
-    public Observable<ScoreRes> getPostRes(ScorePost data)
-    {
+    public Observable<ScoreRes> getPostRes(ScorePost data) {
         return RETROFIT.create(NetWorkService.class).getPostRes(new Gson().toJson(data));
     }
 

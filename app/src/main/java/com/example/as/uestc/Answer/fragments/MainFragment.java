@@ -30,16 +30,18 @@ import me.relex.circleindicator.CircleIndicator;
 
 /**
  * Created by as on 2017/11/5.
+ * 展示当前班级的Fragment
  */
 
 public class MainFragment extends Fragment {
-    private String TOKEN,ID;
-    private EventListener listener;
+
+    private String TOKEN,ID;    //当前评委的token和id
+    private EventListener listener;    //EventListener，用来通知Presenter进行网络请求等事务
     private MainFragment context;
     private CircleIndicator indicator;
     private TextView back,classRank,rank,classer,details,push,description;
-    private ViewPager viewPager;
-    private List<View> views=new ArrayList<>();
+    private ViewPager viewPager;    //展示五张班级详情的图片的ViewPager
+    private List<View> views = new ArrayList<>();    //保存五张图片对应的ImageView的list
     private CurrentClass currentClass;
     private int POSITION;
 
@@ -49,23 +51,11 @@ public class MainFragment extends Fragment {
         super();
     }
 
-    /*
-    public MainFragment(EventListener listener,CurrentClass currentClass)
-    {
-        super();
-        this.listener=listener;
-        this.currentClass=currentClass;
-        ID=currentClass.getClassID();
-    }
-    */
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context=this;
         TOKEN=getArguments().getString("token");
-        //listener=(AnswerListenerImpl)getArguments().getSerializable("listener");
-        //currentClass=(CurrentClass)getArguments().getSerializable("currentclass");
         ID=currentClass.getClassID();
         POSITION=getArguments().getInt("position");
         STATE=getArguments().getInt("state");
@@ -74,11 +64,10 @@ public class MainFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.answer_fragment,container,false);
+        View view = inflater.inflate(R.layout.answer_fragment,container,false);
 
-        for(int i=0;i<5;i++)
-        {
-            View view1=inflater.inflate(R.layout.answer_fragment_pager_item,null,false);
+        for (int i = 0;i < 5;i++) {
+            View view1 = inflater.inflate(R.layout.answer_fragment_pager_item,null,false);
             ImageView imageView=(ImageView) view1.findViewById(R.id.answer_fragment_pager_item_imageview);
             Glide.with(getActivity()).load(currentClass.getImages().get(i)).into(imageView);
             Log.d("", "onCreateView: "+currentClass.getImages().get(i));
@@ -89,49 +78,43 @@ public class MainFragment extends Fragment {
         return view;
     }
 
-    private void init(View view)
-    {
-        //back=(TextView)view.findViewById(R.id.answer_fragment_back);
-        classRank=(TextView)view.findViewById(R.id.answer_fragment_class_rank);
-        classer=(TextView)view.findViewById(R.id.answer_fragment_class);
-        rank=(TextView) view.findViewById(R.id.answer_fragment_rank);
-        details=(TextView)view.findViewById(R.id.answer_fragment_details);
+    private void init(View view) {
+        classRank = (TextView)view.findViewById(R.id.answer_fragment_class_rank);
+        classer = (TextView)view.findViewById(R.id.answer_fragment_class);
+        rank = (TextView) view.findViewById(R.id.answer_fragment_rank);
+        details = (TextView)view.findViewById(R.id.answer_fragment_details);
         //description=(TextView)view.findViewById(R.id.answer_fragment_description);
         push=(TextView)view.findViewById(R.id.answer_fragment_push);
 
-        if(currentClass !=null)
-        {
+        if (currentClass != null) {
             classRank.setText(currentClass.getClassID());
             classer.setText(currentClass.getAcademy());
             rank.setText("答辩序号:"+currentClass.getOrderNum());
         }
-        viewPager=(ViewPager)view.findViewById(R.id.answer_fragment_viewpager);
-        MyPagerAdapter adapter=new MyPagerAdapter(views);
+        viewPager = (ViewPager)view.findViewById(R.id.answer_fragment_viewpager);
+        MyPagerAdapter adapter = new MyPagerAdapter(views);
         viewPager.setAdapter(adapter);
         viewPager.setOffscreenPageLimit(2);
-        ZoomOutPageTransformer transformation=new ZoomOutPageTransformer();
+        ZoomOutPageTransformer transformation = new ZoomOutPageTransformer();
         viewPager.setPageTransformer(true,transformation);
-        indicator=(CircleIndicator)view.findViewById(R.id.indicator);
+        indicator = (CircleIndicator)view.findViewById(R.id.indicator);
         indicator.setViewPager(viewPager);
 
         /*
         如果已经投过票了，就换成已投的图标，并且不可点击
          */
-        if(STATE==1)
-        {
+        if (STATE == 1) {
             push.setEnabled(false);
             push.setBackground(getActivity().getDrawable(R.drawable.shape_has));
             push.setTextColor(Color.parseColor("#dddddddd"));
-
         }
     }
 
-    private void addListeners()
-    {
+    private void addListeners() {
         details.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DetailsDiaolg detailsDiaolg=new DetailsDiaolg();
+                DetailsDiaolg detailsDiaolg = new DetailsDiaolg();
                 detailsDiaolg.show(getFragmentManager(),null);
             }
         });
@@ -139,8 +122,8 @@ public class MainFragment extends Fragment {
         push.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PushDiaolg diaolg=new PushDiaolg();
-                Bundle data=new Bundle();
+                PushDiaolg diaolg = new PushDiaolg();
+                Bundle data = new Bundle();
                 data.putString("classID",ID);
                 data.putString("token",TOKEN);
                 data.putSerializable("listener",listener);
@@ -154,31 +137,30 @@ public class MainFragment extends Fragment {
     /**
      * “打分”按钮点击打分成功后，状态改变
      */
-    public void resetDrawable()
-    {
+    public void resetDrawable() {
         push.setBackground(getActivity().getDrawable(R.drawable.shape_has));
         push.setEnabled(false);
         push.setTextColor(Color.parseColor("#dddddddd"));
     }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(resultCode== Activity.RESULT_OK)
-        {
+        if (resultCode == Activity.RESULT_OK) {
             //处理提交数据的事件
-            String token=data.getExtras().getString("token");
-            String id=data.getExtras().getString("classID");
-            String score=data.getExtras().getString("score");
+            String token = data.getExtras().getString("token");
+            String id = data.getExtras().getString("classID");
+            String score = data.getExtras().getString("score");
             ((AnswerActivity)getActivity()).postScore(new ScorePost(id,score,token),POSITION);
         }
     }
 
     public void setListener(EventListener listener)
     {
-        this.listener=listener;
+        this.listener = listener;
     }
 
     public void setCurrentClass(CurrentClass currentClass)
     {
-        this.currentClass=currentClass;
+        this.currentClass = currentClass;
     }
 }

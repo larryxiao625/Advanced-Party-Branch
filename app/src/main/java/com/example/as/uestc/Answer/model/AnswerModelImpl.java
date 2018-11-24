@@ -13,24 +13,23 @@ import io.reactivex.Observable;
  */
 
 public class AnswerModelImpl extends AnswerModel {
-    private RetrofitManager manager;
-    private ClassList current;
-    public AnswerModelImpl()
-    {
+
+    private RetrofitManager manager;     //进行网络请求的Manager对象
+    private ClassList current;    //当前的班级列表
+
+    public AnswerModelImpl() {
         this.manager=RetrofitManager.getInstance();
     }
-    public Observable<ClassList> getCurrentClass(String token)
-    {
+
+    public Observable<ClassList> getCurrentClass(String token) {
         return this.manager.getCurrentClass(token);
     }
 
-    public Observable<CurrentClass> getCurrent(String classID)
-    {
+    public Observable<CurrentClass> getCurrent(String classID) {
         return this.manager.getCurrent(classID);
     }
 
-    public Observable<ScoreRes> getPostRes(ScorePost scorePost)
-    {
+    public Observable<ScoreRes> getPostRes(ScorePost scorePost) {
         return this.manager.getPostRes(scorePost);
     }
 

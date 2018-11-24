@@ -26,10 +26,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> impl
 
     private RecyclerClickListener listener;
 
-    public MyAdapter(@NonNull ClassList list, Activity activity)
-    {
-        this.list=list;
-        this.activity=activity;
+    public MyAdapter(@NonNull ClassList list, Activity activity) {
+        this.list = list;
+        this.activity = activity;
     }
 
     @Override
@@ -61,14 +60,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> impl
 
     @Override
     public void onClick(View v) {
-        if (listener!=null)
-        {
+        if (listener != null) {
             /*
             将position和state从字符串中解析出来
              */
-            String message=v.getTag().toString();
-            int state=message.endsWith("0")?0:1;
-            int position=Integer.parseInt(message.substring(0,message.length()-1));
+            String message = v.getTag().toString();
+            int state = message.endsWith("0") ? 0:1;
+            int position = Integer.parseInt(message.substring(0,message.length()-1));
 
             listener.recyclerClick(position,state);
         }
@@ -91,31 +89,26 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> impl
 
         private int state;
         private ImageView imageView;
-        private TextView rank,classes,colloge;
-        private Button details;
-        //private TickView tickView;
+        private TextView classes,colloge;    //分别是班级名称和班号
+        private Button details;    //查看详情的按钮
         private CircleImageView logo;
         public MyViewHolder(View itemView) {
             super(itemView);
-            imageView=(ImageView)itemView.findViewById(R.id.recycler_item_image);
-            //rank=(TextView)itemView.findViewById(R.id.recycler_item_rank);
-            classes=(TextView)itemView.findViewById(R.id.recycler_item_class);
-            colloge=(TextView)itemView.findViewById(R.id.recycler_item_college);
-            details=(Button) itemView.findViewById(R.id.recycler_item_detail);
-            //tickView=(TickView)itemView.findViewById(R.id.recycler_item_tick);
-            logo=(CircleImageView)itemView.findViewById(R.id.recycler_item_logo);
+            imageView = (ImageView)itemView.findViewById(R.id.recycler_item_image);
+            classes = (TextView)itemView.findViewById(R.id.recycler_item_class);
+            colloge = (TextView)itemView.findViewById(R.id.recycler_item_college);
+            details = (Button) itemView.findViewById(R.id.recycler_item_detail);
+            logo = (CircleImageView)itemView.findViewById(R.id.recycler_item_logo);
         }
 
-        private void setContent(ClassList list,int position)
-        {
-            Info info=list.getInfo().get(position);
-            state=info.getHavenVote();
+        private void setContent(ClassList list,int position) {
+            Info info = list.getInfo().get(position);
+            state = info.getHavenVote();
             Glide.with(activity).load(info.getCover()).override(800,400).fitCenter().into(imageView);
 
-            //rank.setText(info.getOrderNum());
             classes.setText(info.getClassID());
             colloge.setText(info.getAcademy());
-            if(info.getHavenVote()==0)
+            if (info.getHavenVote() == 0)
                 logo.setBackground(activity.getDrawable(R.drawable.not));
             else
                 logo.setBackground(activity.getDrawable(R.drawable.has));

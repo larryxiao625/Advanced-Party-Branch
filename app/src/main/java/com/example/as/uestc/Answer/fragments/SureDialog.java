@@ -34,20 +34,20 @@ public class SureDialog extends DialogFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        context=this;
-        score=getArguments().getString("score");
-        TOKEN=getArguments().getString("token");
-        ID=getArguments().getString("classID");
+        context = this;
+        score = getArguments().getString("score");
+        TOKEN = getArguments().getString("token");
+        ID = getArguments().getString("classID");
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.answer_dialog_sure,container,false);
-        title=(TextView)view.findViewById(R.id.answer_dialog_sure_title);
+        View view = inflater.inflate(R.layout.answer_dialog_sure,container,false);
+        title = (TextView)view.findViewById(R.id.answer_dialog_sure_title);
         title.setText("你确定要打"+score+"分吗？");
-        posi=(Button)view.findViewById(R.id.answer_dialog_sure_positive);
-        nega=(Button)view.findViewById(R.id.answer_dialog_sure_nagetive);
+        posi = (Button)view.findViewById(R.id.answer_dialog_sure_positive);
+        nega = (Button)view.findViewById(R.id.answer_dialog_sure_nagetive);
 
         nega.setOnClickListener(new View.OnClickListener() {
             @Override
