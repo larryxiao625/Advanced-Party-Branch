@@ -62,7 +62,7 @@ public class AnswerActivity extends AnswerView {
         如果SharedPreferences中的token数据为空，说明是第一次登陆
         则启动loginActivity；如果不为空，就跳过loginActivity界面，直接启动主界面
          */
-        TOKEN=preferences.getString("token",null);
+        TOKEN = preferences.getString("token",null);
 
         /*
         如果是第一次登陆，保存user信息到本地

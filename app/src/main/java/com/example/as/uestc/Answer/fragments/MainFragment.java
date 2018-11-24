@@ -36,7 +36,7 @@ import me.relex.circleindicator.CircleIndicator;
 public class MainFragment extends Fragment {
 
     private String TOKEN,ID;    //当前评委的token和id
-    private EventListener listener;    //EventListener，用来通知Presenter进行网络请求等事务
+    //private EventListener listener;    //EventListener，用来通知Presenter进行网络请求等事务
     private MainFragment context;
     private CircleIndicator indicator;
     private TextView back,classRank,rank,classer,details,push,description;
@@ -54,11 +54,11 @@ public class MainFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        context=this;
-        TOKEN=getArguments().getString("token");
-        ID=currentClass.getClassID();
-        POSITION=getArguments().getInt("position");
-        STATE=getArguments().getInt("state");
+        context = this;
+        TOKEN = getArguments().getString("token");
+        ID = currentClass.getClassID();
+        POSITION = getArguments().getInt("position");
+        STATE = getArguments().getInt("state");
     }
 
     @Nullable
@@ -84,7 +84,7 @@ public class MainFragment extends Fragment {
         rank = (TextView) view.findViewById(R.id.answer_fragment_rank);
         details = (TextView)view.findViewById(R.id.answer_fragment_details);
         //description=(TextView)view.findViewById(R.id.answer_fragment_description);
-        push=(TextView)view.findViewById(R.id.answer_fragment_push);
+        push = (TextView)view.findViewById(R.id.answer_fragment_push);
 
         if (currentClass != null) {
             classRank.setText(currentClass.getClassID());
@@ -126,7 +126,7 @@ public class MainFragment extends Fragment {
                 Bundle data = new Bundle();
                 data.putString("classID",ID);
                 data.putString("token",TOKEN);
-                data.putSerializable("listener",listener);
+                //data.putSerializable("listener",listener);
                 diaolg.setArguments(data);
                 diaolg.setTargetFragment(context,0);
                 diaolg.show(getFragmentManager(),null);
@@ -154,10 +154,11 @@ public class MainFragment extends Fragment {
         }
     }
 
-    public void setListener(EventListener listener)
-    {
+    /*
+    public void setListener(EventListener listener){
         this.listener = listener;
     }
+    */
 
     public void setCurrentClass(CurrentClass currentClass)
     {
