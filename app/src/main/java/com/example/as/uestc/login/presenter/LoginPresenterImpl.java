@@ -38,7 +38,7 @@ public class LoginPresenterImpl implements LoginPresenter {
                     ((LoginActivity)getView()).finishLogin(login);
                 else
                     ((LoginActivity)getView()).showToast(login);
-                Log.d("", "onNext:======================== "+login.getToken());
+                Log.d("", "onNextLoginPresenter:======================== "+login.getToken());
             }
 
             @Override

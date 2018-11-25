@@ -54,6 +54,7 @@ public class AnswerPreImpl extends AnswerPre {
 
             @Override
             public void onNext(ClassList classList) {
+                Log.d("AnswerPresent",classList.getInfo().size()+"=============");
                 instance.getView().initView(classList);
                 if(classList.getErrcode() == 0 && classList.getInfo() != null) {
                     List<Info> info = classList.getInfo();

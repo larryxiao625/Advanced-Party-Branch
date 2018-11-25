@@ -137,7 +137,7 @@ public class AnswerActivity extends AnswerView {
         bundle.putString("token",TOKEN);
         bundle.putInt("state",state);
         fragment=new MainFragment();
-        fragment.setListener(getListener());
+        //fragment.setListener(getListener());
         fragment.setArguments(bundle);
         fragment.setCurrentClass(currentClass);
 
@@ -208,5 +208,6 @@ public class AnswerActivity extends AnswerView {
     }
 
 }
+
 
 

@@ -14,7 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class LoginManager {
-    private static final String BASEURL="http://youban.stuhome.com/";
+    private static final String BASEURL="http://192.168.123.19/riochen/vote/";
     private Retrofit RETROFIT=null;
     private static LoginManager instance=null;
     private LoginManager()
