@@ -23,6 +23,8 @@ import com.example.as.uestc.Answer.view.adapter.MyPagerAdapter;
 import com.example.as.uestc.R;
 import com.example.as.uestc.base.mvp.EventListener;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,7 +41,7 @@ public class MainFragment extends Fragment {
     //private EventListener listener;    //EventListener，用来通知Presenter进行网络请求等事务
     private MainFragment context;
     private CircleIndicator indicator;
-    private TextView back,classRank,rank,classer,details,push,description;
+    private TextView back,classRank,rank,classer,details,push,description,history;
     private ViewPager viewPager;    //展示五张班级详情的图片的ViewPager
     private List<View> views = new ArrayList<>();    //保存五张图片对应的ImageView的list
     private CurrentClass currentClass;
@@ -85,6 +87,7 @@ public class MainFragment extends Fragment {
         details = (TextView)view.findViewById(R.id.answer_fragment_details);
         //description=(TextView)view.findViewById(R.id.answer_fragment_description);
         push = (TextView)view.findViewById(R.id.answer_fragment_push);
+        history = (TextView)view.findViewById(R.id.answer_fragment_record);
 
         if (currentClass != null) {
             classRank.setText(currentClass.getClassID());
@@ -126,10 +129,17 @@ public class MainFragment extends Fragment {
                 Bundle data = new Bundle();
                 data.putString("classID",ID);
                 data.putString("token",TOKEN);
-                //data.putSerializable("listener",listener);
                 diaolg.setArguments(data);
                 diaolg.setTargetFragment(context,0);
                 diaolg.show(getFragmentManager(),null);
+            }
+        });
+
+        history.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                ClassHistoryDialog classHistoryDialog = new ClassHistoryDialog();
+                classHistoryDialog.show(getFragmentManager(), null);
             }
         });
     }

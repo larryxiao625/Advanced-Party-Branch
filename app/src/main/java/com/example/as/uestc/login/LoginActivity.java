@@ -23,7 +23,6 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     private Login login;
     private EditText username,pass;
     private Button signin;
-    private ImageView visibility;
     private LoginPresenterImpl presenter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,26 +49,6 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
             }
         });
 
-        visibility=(ImageView) findViewById(R.id.login_visibility);
-        visibility.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String tag=v.getTag().toString();
-                if(tag=="invisibility")
-                {
-                    v.setTag("visibility");
-                    v.setBackground(getDrawable(R.drawable.visibility));
-                    pass.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
-                }
-                else
-                {
-                    v.setTag("invisibility");
-                    v.setBackground(getDrawable(R.drawable.invisibility));
-                    pass.setInputType(InputType.TYPE_CLASS_TEXT|InputType.TYPE_TEXT_VARIATION_PASSWORD);
-                }
-
-            }
-        });
     }
     @Override
     public void finishLogin(Login login) {

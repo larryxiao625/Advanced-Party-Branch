@@ -43,7 +43,8 @@ public class LoginPresenterImpl implements LoginPresenter {
 
             @Override
             public void onError(Throwable e) {
-                Log.d("", "onError: =============");
+                Log.d("", "onErrorLoginPresenter: =============");
+                e.printStackTrace();
             }
 
             @Override
@@ -70,7 +71,7 @@ public class LoginPresenterImpl implements LoginPresenter {
     }
     @Override
     public void login(PostUser user) {
-        Log.d("", "onError: =============");
+        Log.d("", "onErrorLogin: =============");
 
         getModel().getLogin(user)
                 .subscribeOn(Schedulers.io())
