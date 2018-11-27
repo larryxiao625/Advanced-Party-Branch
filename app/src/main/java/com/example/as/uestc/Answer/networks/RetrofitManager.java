@@ -16,7 +16,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class RetrofitManager {
-    private static final String BASEURL = "http://192.168.123.19/riochen/vote/";
+    private static final String BASEURL = "http://139.199.183.196/ybdb/vote/index.php/";
     private Retrofit RETROFIT = null;
     private static RetrofitManager instance = null;
     private RetrofitManager() {
