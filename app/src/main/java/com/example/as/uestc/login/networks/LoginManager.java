@@ -14,13 +14,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class LoginManager {
-    private static final String BASEURL="http://139.199.183.196/ybdb/vote/index.php/";
-    private Retrofit RETROFIT=null;
-    private static LoginManager instance=null;
-    private LoginManager()
-    {
+    private static final String BASEURL = "http://139.199.183.196/";
+    private Retrofit RETROFIT = null;
+    private static LoginManager instance = null;
+    private LoginManager() {
         //OkHttpClient client=new OkHttpClient.Builder().connectTimeout(12000, TimeUnit.MILLISECONDS).build();
-        RETROFIT=new Retrofit.Builder()
+        RETROFIT = new Retrofit.Builder()
                 .baseUrl(BASEURL)
                 //.client(client)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
@@ -29,11 +28,9 @@ public class LoginManager {
     }
 
 
-    public static LoginManager getInstance()
-    {
-        if (instance==null)
-        {
-            instance=new LoginManager();
+    public static LoginManager getInstance() {
+        if (instance == null) {
+            instance = new LoginManager();
         }
         return instance;
     }
@@ -42,8 +39,7 @@ public class LoginManager {
      *
      * @return
      */
-    public Observable<Login> login(PostUser user)
-    {
+    public Observable<Login> login(PostUser user) {
         return RETROFIT.create(LoginService.class).login(new Gson().toJson(user));
     }
 }

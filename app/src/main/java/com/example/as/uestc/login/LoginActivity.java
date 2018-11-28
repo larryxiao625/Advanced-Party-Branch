@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -34,20 +35,21 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         intiView();
     }
 
-    private void intiView()
-    {
-        username=(EditText)findViewById(R.id.login_username);
-        pass=(EditText)findViewById(R.id.login_passwords);
-        signin=(Button) findViewById(R.id.login_signin);
+    private void intiView() {
+        username = (EditText)findViewById(R.id.login_username);
+        pass = (EditText)findViewById(R.id.login_passwords);
+        signin = (Button) findViewById(R.id.login_signin);
         signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                PostUser user=new PostUser(username.getText().toString(),pass.getText().toString());
+                PostUser user = new PostUser(username.getText().toString(),pass.getText().toString());
                 //presenter.loginV(user,back);
                 presenter.login(user);
             }
         });
+
+        username.addTextChangedListener(new LoginTextWatcher());
 
     }
     @Override
@@ -55,9 +57,8 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         onFinish(login);
     }
 
-    public void onFinish(Login login)
-    {
-        Intent intent=new Intent(LoginActivity.this,AnswerActivity.class);
+    public void onFinish(Login login) {
+        Intent intent = new Intent(LoginActivity.this,AnswerActivity.class);
         intent.putExtra("username",login.getName());
         intent.putExtra("token",login.getToken());
         startActivity(intent);
@@ -68,8 +69,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
      * 登录状态码返回不是0的时候显示toast提示
      * @param login
      */
-    public void showToast(Login login)
-    {
+    public void showToast(Login login) {
         Toast.makeText(this,login.getErrcode()+":"+login.getErrmsg(),Toast.LENGTH_SHORT).show();
     }
 }

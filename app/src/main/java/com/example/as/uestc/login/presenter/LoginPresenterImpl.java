@@ -23,8 +23,7 @@ public class LoginPresenterImpl implements LoginPresenter {
     private LoginModel model=null;
     private LoginView view=null;
     private io.reactivex.Observer<Login> observer;
-    public LoginPresenterImpl()
-    {
+    public LoginPresenterImpl() {
         observer=new Observer<Login>() {
             Disposable disposable;
             @Override
@@ -54,8 +53,7 @@ public class LoginPresenterImpl implements LoginPresenter {
         };
     }
 
-    public void attach(LoginView view,LoginModel model)
-    {
+    public void attach(LoginView view,LoginModel model) {
         this.view=view;
         this.model=model;
     }
