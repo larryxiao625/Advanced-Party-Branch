@@ -16,7 +16,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class RetrofitManager {
-    private static final String BASEURL = "http://139.199.183.196/";
+    private static final String BASEURL = "http://api.yurisa.com.cn/";
     private Retrofit RETROFIT = null;
     private static RetrofitManager instance = null;
     private RetrofitManager() {

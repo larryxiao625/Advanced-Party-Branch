@@ -23,6 +23,7 @@ import com.example.as.uestc.Answer.presenter.AnswerPreImpl;
 import com.example.as.uestc.Answer.view.adapter.MyAdapter;
 import com.example.as.uestc.R;
 import com.example.as.uestc.login.LoginActivity;
+import com.example.as.uestc.login.LoginingDialog;
 
 public class AnswerActivity extends AnswerView {
 
@@ -49,6 +50,8 @@ public class AnswerActivity extends AnswerView {
     private MyAdapter.RecyclerClickListener listener;
 
     private MyScrollListener scrollListener;
+
+    private LoginingDialog loginingDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -189,6 +192,23 @@ public class AnswerActivity extends AnswerView {
         Intent intent = new Intent(this, LoginActivity.class);
         pre.loadInitialDataWithoutFragment();
         startActivity(intent);
+    }
+
+    /**
+     * 弹出登录等待对话框
+     */
+    public void showlogining() {
+        loginingDialog = new LoginingDialog();
+        loginingDialog.show(getFragmentManager(), "loginging");
+    }
+
+    /**
+     * 关闭登录等待对话框
+     */
+    public void shutLLogining() {
+        FragmentTransaction transaction=getFragmentManager().beginTransaction();
+        transaction.remove(loginingDialog);
+        transaction.commit();
     }
 
     class MyScrollListener extends RecyclerView.OnScrollListener {

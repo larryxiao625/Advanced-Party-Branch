@@ -29,6 +29,7 @@ public class LoginPresenterImpl implements LoginPresenter {
             @Override
             public void onSubscribe(Disposable d) {
                 disposable=d;
+                ((LoginActivity)getView()).showlogining();
             }
 
             @Override
@@ -48,6 +49,7 @@ public class LoginPresenterImpl implements LoginPresenter {
 
             @Override
             public void onComplete() {
+                ((LoginActivity)getView()).shutLLogining();
                 disposable.dispose();
             }
         };

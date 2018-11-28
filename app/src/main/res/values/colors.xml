@@ -18,4 +18,5 @@
     <color name="background_end">#ff6665bb</color>
     <color name="background_p">#ff5656ff</color>
     <color name="background_o">#ff3224ff</color>
+    <color name="background_logining">#24000000</color>
 </resources>

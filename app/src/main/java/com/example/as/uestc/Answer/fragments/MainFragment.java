@@ -38,7 +38,6 @@ import me.relex.circleindicator.CircleIndicator;
 public class MainFragment extends Fragment {
 
     private String TOKEN,ID;    //当前评委的token和id
-    //private EventListener listener;    //EventListener，用来通知Presenter进行网络请求等事务
     private MainFragment context;
     private CircleIndicator indicator;
     private TextView back,classRank,rank,classer,details,push,description,history;
@@ -164,11 +163,6 @@ public class MainFragment extends Fragment {
         }
     }
 
-    /*
-    public void setListener(EventListener listener){
-        this.listener = listener;
-    }
-    */
 
     public void setCurrentClass(CurrentClass currentClass)
     {

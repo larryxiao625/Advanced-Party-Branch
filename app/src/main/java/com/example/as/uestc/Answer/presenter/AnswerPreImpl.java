@@ -49,6 +49,7 @@ public class AnswerPreImpl extends AnswerPre {
             Disposable disposable;
             @Override
             public void onSubscribe(Disposable d) {
+                ((AnswerActivity)getView()).showlogining();
                 disposable=d;
             }
 
@@ -75,6 +76,7 @@ public class AnswerPreImpl extends AnswerPre {
 
             @Override
             public void onComplete() {
+                ((AnswerActivity)getView()).shutLLogining();
                 disposable.dispose();
             }
         };

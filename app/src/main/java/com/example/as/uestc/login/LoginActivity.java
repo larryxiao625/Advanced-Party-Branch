@@ -1,5 +1,6 @@
 package com.example.as.uestc.login;
 
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -25,6 +26,8 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     private EditText username,pass;
     private Button signin;
     private LoginPresenterImpl presenter;
+    private LoginingDialog loginingDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +54,8 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
         username.addTextChangedListener(new LoginTextWatcher());
 
+        loginingDialog = new LoginingDialog();
+
     }
     @Override
     public void finishLogin(Login login) {
@@ -71,5 +76,22 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
      */
     public void showToast(Login login) {
         Toast.makeText(this,login.getErrcode()+":"+login.getErrmsg(),Toast.LENGTH_SHORT).show();
+    }
+
+    /**
+     * 弹出登录等待对话框
+     */
+    public void showlogining() {
+        loginingDialog = new LoginingDialog();
+        loginingDialog.show(getFragmentManager(), "loginging");
+    }
+
+    /**
+     * 关闭登录等待对话框
+     */
+    public void shutLLogining() {
+        FragmentTransaction transaction=getFragmentManager().beginTransaction();
+        transaction.remove(loginingDialog);
+        transaction.commit();
     }
 }
