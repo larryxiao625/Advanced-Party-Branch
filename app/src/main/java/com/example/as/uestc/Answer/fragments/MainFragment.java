@@ -67,7 +67,8 @@ public class MainFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.answer_fragment,container,false);
 
-        for (int i = 0;i < 5;i++) {
+        int length = currentClass.getImages().size();
+        for (int i = 0; i < length - 1; i++) {
             View view1 = inflater.inflate(R.layout.answer_fragment_pager_item,null,false);
             ImageView imageView=(ImageView) view1.findViewById(R.id.answer_fragment_pager_item_imageview);
             Glide.with(getActivity()).load(currentClass.getImages().get(i)).into(imageView);
@@ -138,6 +139,10 @@ public class MainFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 ClassHistoryDialog classHistoryDialog = new ClassHistoryDialog();
+                Bundle data = new Bundle();
+                int length = currentClass.getImages().size();
+                data.putString("url",currentClass.getImages().get(length - 1));
+                classHistoryDialog.setArguments(data);
                 classHistoryDialog.show(getFragmentManager(), null);
             }
         });

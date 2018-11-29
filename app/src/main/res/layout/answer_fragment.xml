@@ -97,6 +97,7 @@
         </me.relex.circleindicator.CircleIndicator>
 
         <android.support.constraint.ConstraintLayout
+            android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="0dp">
@@ -129,7 +130,7 @@
 
             <TextView
                 android:id="@+id/answer_fragment_record"
-                android:text="班级足迹"
+                android:text="班级大数据"
                 android:textSize="11dp"
                 android:background="@drawable/textview_scoredetails"
                 android:layout_centerHorizontal="true"
