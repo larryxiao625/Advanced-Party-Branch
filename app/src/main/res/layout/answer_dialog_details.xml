@@ -84,7 +84,7 @@
 
             <TextView
                 android:id="@+id/answer_dialog_details_question1"
-                android:text="     ①合理、逻辑性强  20分"
+                android:text="     ①合理、逻辑性、针对性强  20分"
                 android:layout_marginTop="6dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
