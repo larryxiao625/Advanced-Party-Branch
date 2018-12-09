@@ -14,6 +14,7 @@ import com.bumptech.glide.Glide;
 import com.example.as.uestc.Answer.CircleImageView;
 import com.example.as.uestc.Answer.beans.ClassList;
 import com.example.as.uestc.Answer.beans.Info;
+import com.example.as.uestc.Answer.networks.RetrofitManager;
 import com.example.as.uestc.R;
 
 /**
@@ -104,7 +105,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> impl
         private void setContent(ClassList list,int position) {
             Info info = list.getInfo().get(position);
             state = info.getHavenVote();
-            Glide.with(activity).load(info.getCover()).override(800,400).fitCenter().into(imageView);
+            Glide.with(activity).load("http://stuhome.uestc.edu.cn" + info.getCover()).override(800,400).fitCenter().into(imageView);
 
             classes.setText(info.getClassID());
             colloge.setText(info.getAcademy());

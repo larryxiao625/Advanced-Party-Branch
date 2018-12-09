@@ -22,6 +22,8 @@ import com.example.as.uestc.login.view.LoginView;
 
 public class LoginActivity extends AppCompatActivity implements LoginView {
 
+    private String userName;  //保存的账户
+    private String passWord;  //保存的账户密码
     private Login login;
     private EditText username,pass;
     private Button signin;

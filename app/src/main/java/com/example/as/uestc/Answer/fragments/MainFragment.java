@@ -18,6 +18,7 @@ import com.bumptech.glide.Glide;
 import com.example.as.uestc.Answer.ZoomOutPageTransformer;
 import com.example.as.uestc.Answer.beans.CurrentClass;
 import com.example.as.uestc.Answer.beans.ScorePost;
+import com.example.as.uestc.Answer.networks.RetrofitManager;
 import com.example.as.uestc.Answer.view.AnswerActivity;
 import com.example.as.uestc.Answer.view.adapter.MyPagerAdapter;
 import com.example.as.uestc.R;
@@ -71,7 +72,8 @@ public class MainFragment extends Fragment {
         for (int i = 0; i < length - 1; i++) {
             View view1 = inflater.inflate(R.layout.answer_fragment_pager_item,null,false);
             ImageView imageView=(ImageView) view1.findViewById(R.id.answer_fragment_pager_item_imageview);
-            Glide.with(getActivity()).load(currentClass.getImages().get(i)).into(imageView);
+            Glide.with(getActivity()).load("http://stuhome.uestc.edu.cn" + currentClass.getImages().get(i)).into(imageView);
+            Log.e("", "MainFragment==========" + currentClass.getImages().get(i));
             views.add(view1);
         }
         init(view);
