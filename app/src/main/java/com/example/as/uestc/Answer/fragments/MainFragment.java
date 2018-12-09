@@ -72,7 +72,6 @@ public class MainFragment extends Fragment {
             View view1 = inflater.inflate(R.layout.answer_fragment_pager_item,null,false);
             ImageView imageView=(ImageView) view1.findViewById(R.id.answer_fragment_pager_item_imageview);
             Glide.with(getActivity()).load(currentClass.getImages().get(i)).into(imageView);
-            Log.d("", "onCreateView: "+currentClass.getImages().get(i));
             views.add(view1);
         }
         init(view);

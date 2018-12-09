@@ -14,7 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class LoginManager {
-    private static final String BASEURL = "http://api.yurisa.com.cn/";
+    private static final String BASEURL = "http://stuhome.uestc.edu.cn/api/v1/ybdb_dzbdb/";
     private Retrofit RETROFIT = null;
     private static LoginManager instance = null;
     private LoginManager() {
