@@ -199,14 +199,14 @@ public class AnswerActivity extends AnswerView {
      */
     public void showlogining() {
         loginingDialog = new LoginingDialog();
-        loginingDialog.show(getFragmentManager(), "loginging");
+        loginingDialog.show(getSupportFragmentManager(), "loginging");
     }
 
     /**
      * 关闭登录等待对话框
      */
     public void shutLLogining() {
-        FragmentTransaction transaction=getFragmentManager().beginTransaction();
+        android.support.v4.app.FragmentTransaction transaction=getSupportFragmentManager().beginTransaction();
         transaction.remove(loginingDialog);
         transaction.commit();
     }

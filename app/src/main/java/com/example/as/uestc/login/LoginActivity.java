@@ -1,8 +1,8 @@
 package com.example.as.uestc.login;
 
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
 import android.view.KeyEvent;
@@ -85,14 +85,14 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
      */
     public void showlogining() {
         loginingDialog = new LoginingDialog();
-        loginingDialog.show(getFragmentManager(), "loginging");
+        loginingDialog.show(getSupportFragmentManager(), "loginging");
     }
 
     /**
      * 关闭登录等待对话框
      */
     public void shutLLogining() {
-        FragmentTransaction transaction=getFragmentManager().beginTransaction();
+        FragmentTransaction transaction=getSupportFragmentManager().beginTransaction();
         transaction.remove(loginingDialog);
         transaction.commit();
     }

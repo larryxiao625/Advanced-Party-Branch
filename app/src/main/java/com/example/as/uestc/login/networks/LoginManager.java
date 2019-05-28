@@ -3,6 +3,7 @@ package com.example.as.uestc.login.networks;
 import com.example.as.uestc.login.bean.Login;
 import com.example.as.uestc.login.bean.PostUser;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import io.reactivex.Observable;
 import retrofit2.Retrofit;
@@ -14,7 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class LoginManager {
-    private static final String BASEURL = "http://112.74.180.184ybdb_dzbdb_be/index.php/";
+    private static final String BASEURL = "http://112.74.180.184/ybdb_dzbdb_be/index.php/";
     private Retrofit RETROFIT = null;
     private static LoginManager instance = null;
     private LoginManager() {
@@ -23,7 +24,7 @@ public class LoginManager {
                 .baseUrl(BASEURL)
                 //.client(client)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(new GsonBuilder().setLenient().create()))
                 .build();
     }
 
