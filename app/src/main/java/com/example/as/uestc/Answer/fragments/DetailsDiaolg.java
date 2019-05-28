@@ -1,9 +1,9 @@
 package com.example.as.uestc.Answer.fragments;
 
-import android.app.DialogFragment;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,7 +48,7 @@ public class DetailsDiaolg extends DialogFragment {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentTransaction transaction=getActivity().getFragmentManager().beginTransaction();
+                FragmentTransaction transaction=getActivity().getSupportFragmentManager().beginTransaction();
                 transaction.remove(context);
                 transaction.commit();
             }

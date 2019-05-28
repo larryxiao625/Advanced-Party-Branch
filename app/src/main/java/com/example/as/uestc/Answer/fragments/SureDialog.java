@@ -1,11 +1,11 @@
 package com.example.as.uestc.Answer.fragments;
 
 import android.app.Activity;
-import android.app.DialogFragment;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,7 +52,7 @@ public class SureDialog extends DialogFragment {
         nega.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentTransaction transaction=getActivity().getFragmentManager().beginTransaction();
+                android.support.v4.app.FragmentTransaction transaction=getActivity().getSupportFragmentManager().beginTransaction();
                 transaction.remove(context);
                 transaction.commit();
             }
@@ -70,7 +70,7 @@ public class SureDialog extends DialogFragment {
 
                 //点击确定后提交数据交给上一个fragment来完成
                 getTargetFragment().onActivityResult(0, Activity.RESULT_OK,intent);
-                FragmentTransaction transaction=getActivity().getFragmentManager().beginTransaction();
+                FragmentTransaction transaction=getActivity().getSupportFragmentManager().beginTransaction();
                 transaction.remove(context);
                 transaction.commit();
             }

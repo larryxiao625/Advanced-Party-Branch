@@ -1,11 +1,11 @@
 package com.example.as.uestc.Answer.fragments;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -119,6 +119,7 @@ public class MainFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 DetailsDiaolg detailsDiaolg = new DetailsDiaolg();
+                assert getFragmentManager() != null;
                 detailsDiaolg.show(getFragmentManager(),null);
             }
         });

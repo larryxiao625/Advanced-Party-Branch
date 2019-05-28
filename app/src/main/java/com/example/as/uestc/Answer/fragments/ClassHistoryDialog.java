@@ -1,10 +1,10 @@
 package com.example.as.uestc.Answer.fragments;
 
 import android.animation.Animator;
-import android.app.DialogFragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.DialogFragment;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;

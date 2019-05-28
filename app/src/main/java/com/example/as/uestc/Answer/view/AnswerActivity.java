@@ -1,9 +1,9 @@
 package com.example.as.uestc.Answer.view;
 
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -104,7 +104,7 @@ public class AnswerActivity extends AnswerView {
         recycler.setLayoutManager(line);
         recycler.setAdapter(myAdapter);
         scrollListener=new MyScrollListener();
-        recycler.setOnScrollListener(scrollListener);
+        recycler.addOnScrollListener(scrollListener);
 
         listener=new MyAdapter.RecyclerClickListener() {
             @Override
@@ -145,7 +145,7 @@ public class AnswerActivity extends AnswerView {
         fragment.setCurrentClass(currentClass);
 
 
-        FragmentTransaction transaction=getFragmentManager().beginTransaction();
+        FragmentTransaction transaction=getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.answer_activity_fragment,fragment);
         transaction.commit();
     }

@@ -105,7 +105,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> impl
         private void setContent(ClassList list,int position) {
             Info info = list.getInfo().get(position);
             state = info.getHavenVote();
-            Glide.with(activity).load("http://stuhome.uestc.edu.cn" + info.getCover()).override(800,400).fitCenter().into(imageView);
+            Glide.with(activity).load("http://112.74.180.184" + info.getCover()).override(800,400).fitCenter().into(imageView);
 
             classes.setText(info.getClassID());
             colloge.setText(info.getAcademy());
