@@ -48,7 +48,7 @@ public class ClassHistoryDialog extends DialogFragment {
         history = (ImageView)view.findViewById(R.id.answer_dialog_classhistory_image);
 
         if (url != null && url != "") {
-            Glide.with(getActivity()).load("http://stuhome.uestc.edu.cn" + url).into(history);
+            Glide.with(getActivity()).load(url).into(history);
         }
         return view;
     }

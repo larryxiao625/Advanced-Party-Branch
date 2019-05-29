@@ -72,7 +72,7 @@ public class MainFragment extends Fragment {
         for (int i = 0; i < length - 1; i++) {
             View view1 = inflater.inflate(R.layout.answer_fragment_pager_item,null,false);
             ImageView imageView=(ImageView) view1.findViewById(R.id.answer_fragment_pager_item_imageview);
-            Glide.with(getActivity()).load("http://stuhome.uestc.edu.cn" + currentClass.getImages().get(i)).into(imageView);
+            Glide.with(getActivity()).load(currentClass.getImages().get(i)).into(imageView);
             Log.e("", "MainFragment==========" + currentClass.getImages().get(i));
             views.add(view1);
         }
@@ -88,7 +88,7 @@ public class MainFragment extends Fragment {
         details = (TextView)view.findViewById(R.id.answer_fragment_details);
         //description=(TextView)view.findViewById(R.id.answer_fragment_description);
         push = (TextView)view.findViewById(R.id.answer_fragment_push);
-        history = (TextView)view.findViewById(R.id.answer_fragment_record);
+//        history = (TextView)view.findViewById(R.id.answer_fragment_record);
 
         if (currentClass != null) {
             classRank.setText(currentClass.getClassID());
@@ -137,17 +137,17 @@ public class MainFragment extends Fragment {
             }
         });
 
-        history.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                ClassHistoryDialog classHistoryDialog = new ClassHistoryDialog();
-                Bundle data = new Bundle();
-                int length = currentClass.getImages().size();
-                data.putString("url",currentClass.getImages().get(length - 1));
-                classHistoryDialog.setArguments(data);
-                classHistoryDialog.show(getFragmentManager(), null);
-            }
-        });
+//        history.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View view) {
+//                ClassHistoryDialog classHistoryDialog = new ClassHistoryDialog();
+//                Bundle data = new Bundle();
+//                int length = currentClass.getImages().size();
+//                data.putString("url",currentClass.getImages().get(length - 1));
+//                classHistoryDialog.setArguments(data);
+//                classHistoryDialog.show(getFragmentManager(), null);
+//            }
+//        });
     }
 
     /**
