@@ -3,12 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="13dp"
-    android:layout_width="240dp"
-    android:layout_height="match_parent">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
     <RelativeLayout
         android:background="#66FFFFFF"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
         <com.example.as.uestc.Answer.CircleImageView
             android:id="@+id/answer_dialog_details_back"
@@ -18,6 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
+            android:layout_centerHorizontal="true"
             android:background="#66FFFFFF"
             android:id="@+id/answer_dialog_details_title"
             android:text="评分细则"
@@ -25,106 +26,194 @@
             android:textSize="16dp"
             android:gravity="center"
             android:layout_marginTop="11dp"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
+            android:layout_centerHorizontal="true"
             android:background="#66FFFFFF"
             android:textStyle="bold"
             android:id="@+id/answer_dialog_details_detail1"
             android:layout_below="@id/answer_dialog_details_title"
             android:text="评分采用100分制，分值保留到小数点后一位"
             android:layout_marginTop="6dp"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-
         <LinearLayout
-            android:id="@+id/answer_dialog_details_line1"
             android:layout_below="@id/answer_dialog_details_detail1"
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/answer_dialog_details_action"
-                android:textStyle="bold"
-                android:text="  1、答辩现场表现 ——55分"
-                android:layout_marginTop="6dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                        <TextView
+                            android:textStyle="bold"
+                            android:text="  1、支部建设情况 ——60分"
+                            android:layout_marginTop="6dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
 
-            <TextView
-                android:id="@+id/answer_dialog_details_action1"
-                android:text="     ①自我展示效果   30分"
-                android:layout_marginTop="6dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                        <TextView
+                            android:text="     ①党支部&quot;三个一&quot;任务\n         清单完成情况   60分"
+                            android:layout_marginTop="6dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"/>
 
-            <TextView
-                android:id="@+id/answer_dialog_details_action2"
-                android:text="     ②特色鲜明       25分"
-                android:layout_marginTop="6dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
+                    </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/answer_dialog_details_line2"
-            android:layout_below="@id/answer_dialog_details_line1"
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/answer_dialog_details_question"
-                android:text="  2、回答问题部分 ——35分"
-                android:textStyle="bold"
-                android:layout_marginTop="6dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                        <TextView
+                            android:text="  2、党员全面发展 ——60分"
+                            android:textStyle="bold"
+                            android:layout_marginTop="6dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
 
-            <TextView
-                android:id="@+id/answer_dialog_details_question1"
-                android:text="     ①合理、逻辑性、针对性强  20分"
-                android:layout_marginTop="6dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                        <TextView
+                            android:text="     ①支部理论学习情况  20分   "
+                            android:layout_marginTop="6dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
 
-            <TextView
-                android:id="@+id/answer_dialog_details_question2"
-                android:text="     ②语言组织能力    15分"
-                android:layout_marginTop="6dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
+                        <TextView
+                            android:text="     ②党员骨干作用发挥情况  20分   "
+                            android:layout_marginTop="6dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:text="     ②党员服务同学情况  20分   "
+                            android:layout_marginTop="6dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/answer_dialog_details_line3"
-            android:layout_below="@id/answer_dialog_details_line2"
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/answer_dialog_details_show"
-                android:text="  3、答辩材料展示——10分"
-                android:textStyle="bold"
-                android:layout_marginTop="6dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                        <TextView
+                            android:text="  3、主题活动开展 ——60分"
+                            android:textStyle="bold"
+                            android:layout_marginTop="6dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
 
-            <TextView
-                android:id="@+id/answer_dialog_details_show1"
-                android:text="     ①材料重点突出    5分"
-                android:layout_marginTop="6dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                        <TextView
+                            android:text="     ①支部各类主题党日活动\n         开展情况      60分"
+                            android:layout_marginTop="6dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:id="@+id/answer_dialog_details_line1"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/answer_dialog_details_show2"
-                android:text="     ②完成指标清晰    5分"
-                android:layout_marginTop="6dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                    <TextView
+                        android:id="@+id/answer_dialog_details_action"
+                        android:textStyle="bold"
+                        android:text="  1、答辩现场表现 ——20分"
+                        android:layout_marginTop="6dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/answer_dialog_details_action1"
+                        android:text="     ①自我展示效果   10分"
+                        android:layout_marginTop="6dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/answer_dialog_details_action2"
+                        android:text="     ②特色鲜明       10分"
+                        android:layout_marginTop="6dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/answer_dialog_details_line2"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/answer_dialog_details_question"
+                        android:text="  2、回答问题部分 ——10分"
+                        android:textStyle="bold"
+                        android:layout_marginTop="6dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/answer_dialog_details_question1"
+                        android:text="     ①合理、逻辑性、针对性强  5分"
+                        android:layout_marginTop="6dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/answer_dialog_details_question2"
+                        android:text="     ②语言组织能力    5分"
+                        android:layout_marginTop="6dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/answer_dialog_details_line3"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/answer_dialog_details_show"
+                        android:text="  3、答辩材料展示——10分"
+                        android:textStyle="bold"
+                        android:layout_marginTop="6dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/answer_dialog_details_show1"
+                        android:text="     ①材料重点突出    5分"
+                        android:layout_marginTop="6dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/answer_dialog_details_show2"
+                        android:text="     ②完成指标清晰    5分"
+                        android:layout_marginTop="6dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
 
 
