@@ -58,13 +58,13 @@
 
                         <TextView
                             android:textStyle="bold"
-                            android:text="  1、支部建设情况 ——60分"
+                            android:text="  1、支部建设情况 ——30分"
                             android:layout_marginTop="6dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
 
                         <TextView
-                            android:text="     ①党支部&quot;三个一&quot;任务\n         清单完成情况   60分"
+                            android:text="     ①党支部&quot;三个一&quot;任务\n         清单完成情况   30分"
                             android:layout_marginTop="6dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -78,25 +78,25 @@
                         android:layout_height="wrap_content">
 
                         <TextView
-                            android:text="  2、党员全面发展 ——60分"
+                            android:text="  2、党员全面发展 ——20分"
                             android:textStyle="bold"
                             android:layout_marginTop="6dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
 
                         <TextView
-                            android:text="     ①支部理论学习情况  20分   "
+                            android:text="     ①支部理论学习情况  10分   "
                             android:layout_marginTop="6dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
 
                         <TextView
-                            android:text="     ②党员骨干作用发挥情况  20分   "
+                            android:text="     ②党员骨干作用发挥情况  5分   "
                             android:layout_marginTop="6dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
                         <TextView
-                            android:text="     ②党员服务同学情况  20分   "
+                            android:text="     ②党员服务同学情况  5分   "
                             android:layout_marginTop="6dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
@@ -108,14 +108,14 @@
                         android:layout_height="wrap_content">
 
                         <TextView
-                            android:text="  3、主题活动开展 ——60分"
+                            android:text="  3、主题活动开展 ——20分"
                             android:textStyle="bold"
                             android:layout_marginTop="6dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
 
                         <TextView
-                            android:text="     ①支部各类主题党日活动\n         开展情况      60分"
+                            android:text="     ①支部各类主题党日活动\n         开展情况      20分"
                             android:layout_marginTop="6dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
@@ -136,21 +136,21 @@
                     <TextView
                         android:id="@+id/answer_dialog_details_action"
                         android:textStyle="bold"
-                        android:text="  1、答辩现场表现 ——20分"
+                        android:text="  1、答辩现场表现 ——10分"
                         android:layout_marginTop="6dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
 
                     <TextView
                         android:id="@+id/answer_dialog_details_action1"
-                        android:text="     ①自我展示效果   10分"
+                        android:text="     ①自我展示效果   5分"
                         android:layout_marginTop="6dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
 
                     <TextView
                         android:id="@+id/answer_dialog_details_action2"
-                        android:text="     ②特色鲜明       10分"
+                        android:text="     ②特色鲜明       5分"
                         android:layout_marginTop="6dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />

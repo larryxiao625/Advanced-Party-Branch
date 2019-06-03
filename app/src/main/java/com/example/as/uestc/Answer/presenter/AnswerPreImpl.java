@@ -59,10 +59,12 @@ public class AnswerPreImpl extends AnswerPre {
                 instance.getView().initView(classList);
                 if(classList.getErrcode() == 0 && classList.getInfo() != null) {
                     List<Info> info = classList.getInfo();
-                    if(info.size() > 0)
-                        refreshFragment(info.get(0).getClassID(),0,info.get(0).getHavenVote());
-                    else
-                        ((AnswerActivity)getView()).showToast("后台无数据...");
+                    if(info.size() > 0) {
+                        Log.d("ClassId",info.get(0).getClassID());
+                        refreshFragment(info.get(0).getClassID(), 0, info.get(0).getHavenVote());
+                    }else {
+                        ((AnswerActivity) getView()).showToast("后台无数据...");
+                    }
                 } else if(classList.getErrcode() != 0) {
                     ((AnswerActivity)getView()).showToast(classList.getErrcode()+":"+classList.getErrmsg());
                     ((AnswerActivity)getView()).reLogin();

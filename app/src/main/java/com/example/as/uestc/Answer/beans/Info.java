@@ -1,6 +1,7 @@
 package com.example.as.uestc.Answer.beans;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  *
@@ -13,7 +14,7 @@ public class Info implements Serializable{
         private String academy;
         private String cover;
         private int havenVote;
-        //private List<String> images;
+        private List<String> images;
 
         public int getHavenVote(){
                 return this.havenVote;
@@ -33,11 +34,10 @@ public class Info implements Serializable{
             return this.cover;
         }
 
-        /*public List<String> getImages()
+        public List<String> getImages()
         {
             return this.images;
         }
-        */
         public String getOrderNum()
         {
             return this.orderNum;
